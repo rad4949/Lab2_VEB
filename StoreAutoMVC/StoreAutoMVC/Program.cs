@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using StoreAutoMVC.Entity;
+using StoreAutoMVC.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+string connection = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<DBContext>(options => options.UseSqlServer(connection));
+
+builder.Services.AddScoped<IDBContext, DBContext>();
 
 var app = builder.Build();
 
