@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Model>
+
+<h2>Table Models</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Model name</th>
+            <th scope="col">Body type</th>
+            <th scope="col">Garantee</th>
+            <th scope="col">BrandId</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@item.Id</td>
+                    <td>@item.NameModel</td>
+                    <td>@item.BodyType</td>
+                    <td>@item.Guarantee</td>
+                    <td>@item.BrandId</td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>

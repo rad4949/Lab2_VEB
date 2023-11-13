@@ -15,12 +15,28 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/КПІ/4 курс/Розробка веб застосунків/Лаб2/StoreAutoMVC/StoreAutoMVC/Views/Brand/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/КПІ/4 курс/Розробка веб застосунків/Лаб2/StoreAutoMVC/StoreAutoMVC/Views/Car/Cars.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXENhcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/КПІ/4 курс/Розробка веб застосунків/Лаб2/StoreAutoMVC/StoreAutoMVC/Views/Equipment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXF1aXBtZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/КПІ/4 курс/Розробка веб застосунків/Лаб2/StoreAutoMVC/StoreAutoMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/КПІ/4 курс/Розробка веб застосунків/Лаб2/StoreAutoMVC/StoreAutoMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/КПІ/4 курс/Розробка веб застосунків/Лаб2/StoreAutoMVC/StoreAutoMVC/Views/Model/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW9kZWxcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/КПІ/4 курс/Розробка веб застосунків/Лаб2/StoreAutoMVC/StoreAutoMVC/Views/Shared/Error.cshtml]

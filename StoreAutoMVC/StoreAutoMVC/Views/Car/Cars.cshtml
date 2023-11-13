@@ -1,0 +1,34 @@
+﻿@model IEnumerable<CarViewModel>
+
+<h2>Table Cars</h2>
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Brand name</th>
+            <th scope="col">Model name</th>
+            <th scope="col">Country</th>
+            <th scope="col">Fuel type</th>
+            <th scope="col">Model year</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@item.Brand.NameBrand</td>
+                    <td>@item.Model.NameModel</td>
+                    <td>@item.Brand.ProducingCountry</td>
+                    <td>@item.Equipment.FuelType</td>
+                    <td>@item.Equipment.ModelYear</td>
+                    <td>@item.Equipment.PriceEquipment</td>
+                </tr>
+                i++;
+            }
+        }       
+    </tbody>
+</table>

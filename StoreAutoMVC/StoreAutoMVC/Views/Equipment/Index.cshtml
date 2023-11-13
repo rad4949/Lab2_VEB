@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Equipment>
+
+<h2>Table Equipments</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Driver type</th>
+            <th scope="col">Engine capacity</th>
+            <th scope="col">Fuel type</th>
+            <th scope="col">Model year</th>
+            <th scope="col">Price equipment</th>
+            <th scope="col">ModelId</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@item.Id</td>
+                    <td>@item.DriverType</td>
+                    <td>@item.EngineCapacity</td>
+                    <td>@item.FuelType</td>
+                    <td>@item.ModelYear</td>
+                    <td>@item.PriceEquipment</td>
+                    <td>@item.ModelId</td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>
