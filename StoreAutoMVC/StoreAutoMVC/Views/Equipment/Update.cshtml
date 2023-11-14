@@ -1,0 +1,59 @@
+﻿@model Equipment
+
+<div class="container">
+    <h1 class="text-center">Update equipment</h1>
+
+    <form asp-action="Update" method="post">
+        <div class="row justify-content-center">
+            <div class="col-5 mb-3">
+                <label asp-for="DriverType" class="form-label">Driver type</label>
+                <input asp-for="DriverType" type="text" class="form-control" placeholder="Enter text ...">
+                <span asp-validation-for="DriverType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-5 mb-3">
+                <label asp-for="EngineCapacity" class="form-label">Engine capacity</label>
+                <input asp-for="EngineCapacity" type="nubber" step="0.1" class="form-control" placeholder="Enter text ...">
+                <span asp-validation-for="EngineCapacity" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-5 mb-3">
+                <label asp-for="FuelType" class="form-label">Fuel type</label>
+                <input asp-for="FuelType" type="text" class="form-control" placeholder="Enter text ...">
+                <span asp-validation-for="FuelType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-5 mb-3">
+                <label asp-for="ModelYear" class="form-label">Model year</label>
+                <input asp-for="ModelYear" type="number" class="form-control" placeholder="Enter text ...">
+                <span asp-validation-for="ModelYear" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-5 mb-3">
+                <label asp-for="PriceEquipment" class="form-label">Price equipment</label>
+                <input asp-for="PriceEquipment" type="number" class="form-control" placeholder="Enter text ...">
+                <span asp-validation-for="PriceEquipment" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-5 mb-3">
+                <label asp-for="ModelId" class="form-label">State</label>
+                <select asp-for="ModelId" asp-items="@ViewBag.ModelIdList" class="form-select" required>
+                    <option disabled selected>Choose...</option>
+                </select>
+                <span asp-validation-for="ModelId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-5">
+                <a asp-action="Index" class="btn btn-dark">Back</a>
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+        </div>
+    </form>
+
+</div>

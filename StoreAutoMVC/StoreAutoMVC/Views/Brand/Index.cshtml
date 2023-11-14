@@ -1,6 +1,9 @@
 ﻿@model IEnumerable<Brand>
 
 <h2>Table Brands</h2>
+<div class="d-flex justify-content-end">
+    <a asp-action="Create" type="button" class="btn btn-success ">Create new brand</a>
+</div>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -8,6 +11,7 @@
             <th scope="col">Id</th>
             <th scope="col">Brand name</th>
             <th scope="col">Country</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +24,12 @@
                     <td>@item.Id</td>
                     <td>@item.NameBrand</td>
                     <td>@item.ProducingCountry</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-secondary">Update</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
                 </tr>
                 i++;
             }
