@@ -6,6 +6,15 @@
     <form asp-action="Create" method="post">
         <div class="row justify-content-center">
             <div class="col-5 mb-3">
+                <label asp-for="BrandId" class="form-label">State</label>
+                <select asp-for="BrandId" asp-items="@ViewBag.BrandIdList" class="form-select" required>
+                    <option disabled selected>Choose...</option>
+                </select>
+                <span asp-validation-for="BrandId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-5 mb-3">
                 <label asp-for="NameModel" class="form-label">Model name</label>
                 <input asp-for="NameModel" type="text" class="form-control" placeholder="Enter text ...">
                 <span asp-validation-for="NameModel" class="text-danger"></span>
@@ -23,15 +32,6 @@
                 <label asp-for="Guarantee" class="form-label">Guarantee</label>
                 <input asp-for="Guarantee" type="text" class="form-control" placeholder="Enter text ...">
                 <span asp-validation-for="Guarantee" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-5 mb-3">
-                <label asp-for="BrandId" class="form-label">State</label>
-                <select asp-for="BrandId" asp-items="@ViewBag.BrandIdList" class="form-select" required>
-                    <option disabled selected>Choose...</option>
-                </select>
-                <span asp-validation-for="BrandId" class="text-danger"></span>
             </div>
         </div>
         <div class="row justify-content-center">

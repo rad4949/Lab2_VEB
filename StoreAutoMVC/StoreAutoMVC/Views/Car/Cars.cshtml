@@ -1,6 +1,31 @@
-﻿@model IEnumerable<CarViewModel>
+﻿@using StoreAutoMVC.Models
+@using StoreAutoMVC.ViewModels
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@*@model IEnumerable<CarViewModel>*@
+@model IndexViewModel
 
 <h2>Table Cars</h2>
+<form method="get">
+    <div class="row justify-content-end">
+        <div class="col-3 mb-3">
+            <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend">Brand:</span>
+                <select name="brand" asp-items="Model.FilterViewModel.Brands" class="form-select"></select>
+            </div>
+        </div>
+        <div class="col-3 mb-3">
+            <div class="input-group">
+                <span class="input-group-text" id="inputGroupPrepend">Model:</span>
+                <input name="name" value="@Model.FilterViewModel.SelectedModel" class="form-control">
+            </div>
+        </div>
+        <div class="col-1 mb-3">
+            <input class="btn btn-success" type="submit" value="Filter" />
+        </div>
+    </div>   
+
+</form>
 <table class="table">
     <thead class="table-dark">
         <tr>
@@ -17,7 +42,7 @@
     <tbody>
         @{
             int i = 1;
-            foreach (var item in Model)
+            foreach (var item in Model.Cars)
             {
                 <tr>
                     <th scope="row">@i</th>
@@ -31,6 +56,31 @@
                 </tr>
                 i++;
             }
-        }       
+        }
     </tbody>
 </table>
+
+<p>
+    @if (Model.PageViewModel.HasPreviousPage)
+    {
+        <a asp-action="Cars"
+       asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+       asp-route-name="@(Model.FilterViewModel.SelectedModel)"
+       asp-route-company="@(Model.FilterViewModel.SelectedBrand)"
+       asp-route-sortorder="@(Model.SortViewModel.Current)"
+       class="glyphicon glyphicon-chevron-left">
+            Back
+        </a>
+    }
+    @if (Model.PageViewModel.HasNextPage)
+    {
+        <a asp-action="Cars"
+       asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+       asp-route-name="@(Model.FilterViewModel.SelectedModel)"
+       asp-route-company="@(Model.FilterViewModel.SelectedBrand)"
+       asp-route-sortorder="@(Model.SortViewModel.Current)"
+       class="glyphicon glyphicon-chevron-right">
+            Next
+        </a>
+    }
+</p>

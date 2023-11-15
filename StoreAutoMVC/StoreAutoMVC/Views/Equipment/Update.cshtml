@@ -6,6 +6,15 @@
     <form asp-action="Update" method="post">
         <div class="row justify-content-center">
             <div class="col-5 mb-3">
+                <label asp-for="ModelId" class="form-label">State</label>
+                <select asp-for="ModelId" asp-items="@ViewBag.ModelIdList" class="form-select" required>
+                    <option disabled selected>Choose...</option>
+                </select>
+                <span asp-validation-for="ModelId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-5 mb-3">
                 <label asp-for="NameEquipment" class="form-label">Name equipment</label>
                 <input asp-for="NameEquipment" type="text" class="form-control" placeholder="Enter text ...">
                 <span asp-validation-for="NameEquipment" class="text-danger"></span>
@@ -44,15 +53,6 @@
                 <label asp-for="PriceEquipment" class="form-label">Price equipment</label>
                 <input asp-for="PriceEquipment" type="number" class="form-control" >
                 <span asp-validation-for="PriceEquipment" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-5 mb-3">
-                <label asp-for="ModelId" class="form-label">State</label>
-                <select asp-for="ModelId" asp-items="@ViewBag.ModelIdList" class="form-select" required>
-                    <option disabled selected>Choose...</option>
-                </select>
-                <span asp-validation-for="ModelId" class="text-danger"></span>
             </div>
         </div>
         <div class="row justify-content-center">
