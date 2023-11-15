@@ -1,9 +1,33 @@
-﻿@using StoreAutoMVC.Models
-@using StoreAutoMVC.ViewModels
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@model IndexViewModel
 
-@*@model IEnumerable<CarViewModel>*@
-@model IndexViewModel
+<style>
+    .glyphicon {
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        margin: 0 5px;
+    }
+
+    .glyphicon-chevron-down {
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+
+    .glyphicon-chevron-up {
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+    }
+
+    .colorText {
+        color: white;
+    }
+
+        .colorText:hover {
+            color: gray;
+        }
+
+</style>
 
 <h2>Table Cars</h2>
 <form method="get">
@@ -23,16 +47,50 @@
         <div class="col-1 mb-3">
             <input class="btn btn-success" type="submit" value="Filter" />
         </div>
-    </div>   
+    </div>
 
 </form>
 <table class="table">
     <thead class="table-dark">
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Brand name</th>
-            <th scope="col">Model name</th>
-            <th scope="col">Equipment name</th>
+            <th scope="col">
+                <a class="colorText" asp-action="Cars"
+                   asp-route-name="@(Model.FilterViewModel.SelectedModel)"
+                   asp-route-brand="@(Model.FilterViewModel.SelectedBrand)"
+                   asp-route-sortCars="@(Model.SortViewModel.BrandSort)">
+                    Brand name
+                </a>
+                @if (Model.SortViewModel.BrandSortActive)
+                {
+                    <span class="glyphicon @(Model.SortViewModel.IsUp ? "glyphicon-chevron-up" : "glyphicon-chevron-down") "></span>
+                }
+
+            </th>
+            <th scope="col">
+                <a class="colorText" asp-action="Cars"
+                   asp-route-name="@(Model.FilterViewModel.SelectedModel)"
+                   asp-route-brand="@(Model.FilterViewModel.SelectedBrand)"
+                   asp-route-sortCars="@(Model.SortViewModel.ModelSort)">
+                    Model name
+                </a>
+                @if (Model.SortViewModel.ModelSortActive)
+                {
+                    <span class="glyphicon @(Model.SortViewModel.IsUp ? "glyphicon-chevron-up" : "glyphicon-chevron-down")"></span>
+                }
+            </th>
+            <th scope="col">
+                <a class="colorText" asp-action="Cars"
+                   asp-route-name="@(Model.FilterViewModel.SelectedModel)"
+                   asp-route-brand="@(Model.FilterViewModel.SelectedBrand)"
+                   asp-route-sortCars="@(Model.SortViewModel.EquipmentSort)">
+                    Equipment name
+                </a>
+                @if (Model.SortViewModel.EquipmentSortActive)
+                {
+                    <span class="glyphicon @(Model.SortViewModel.IsUp ? "glyphicon-chevron-up" : "glyphicon-chevron-down")"></span>
+                }
+            </th>
             <th scope="col">Country</th>
             <th scope="col">Fuel type</th>
             <th scope="col">Model year</th>
@@ -66,8 +124,8 @@
         <a asp-action="Cars"
        asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
        asp-route-name="@(Model.FilterViewModel.SelectedModel)"
-       asp-route-company="@(Model.FilterViewModel.SelectedBrand)"
-       asp-route-sortorder="@(Model.SortViewModel.Current)"
+       asp-route-brand="@(Model.FilterViewModel.SelectedBrand)"
+       asp-route-sortCars="@(Model.SortViewModel.Current)"
        class="glyphicon glyphicon-chevron-left">
             Back
         </a>
@@ -77,10 +135,43 @@
         <a asp-action="Cars"
        asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
        asp-route-name="@(Model.FilterViewModel.SelectedModel)"
-       asp-route-company="@(Model.FilterViewModel.SelectedBrand)"
-       asp-route-sortorder="@(Model.SortViewModel.Current)"
+       asp-route-brand="@(Model.FilterViewModel.SelectedBrand)"
+       asp-route-sortCars="@(Model.SortViewModel.Current)"
        class="glyphicon glyphicon-chevron-right">
             Next
         </a>
     }
 </p>
+@*<nav>
+    <ul class="pagination">
+        @{
+            int page = Model.PageViewModel.PageNumber;
+        }
+        <li class="page-item @(page == 1? "disabled":"")">
+            <a class="page-link" asp-action="Cars" asp-controller="Car"
+               asp-route-page="@(page - 1)" 
+               asp-route-name="@(Model.FilterViewModel.SelectedModel)"
+               asp-route-brand="@(Model.FilterViewModel.SelectedBrand)"
+               asp-route-sortCars="@(Model.SortViewModel.Current)" tabindex="-1">Попередня</a>
+        </li>
+        @for (int i = 1; i < Model.MaxPage + 1; i++)
+        {
+            <li class="page-item @(page == i ? "active": "" )">
+                <a class="page-link" asp-action="List" asp-controller="Product"
+               asp-route-page="@i" asp-route-name="@Model.Filter.Name"
+               asp-route-category="@Model.Filter.CurrentCategory"
+               asp-route-brand="@Model.Filter.CurrentBrand"
+               asp-route-priceMin="@Model.Filter.CurrentPriceMin"
+               asp-route-priceMax="@Model.Filter.CurrentPriceMax">@i <span class="sr-only">(current)</span></a>
+            </li>
+        }
+        <li class="page-item @(page == Model.MaxPage? "disabled":"")">
+            <a class="page-link" asp-action="List" asp-controller="Product" asp-route-page="@(page+1)"
+               asp-route-name="@Model.Filter.Name"
+               asp-route-category="@Model.Filter.CurrentCategory"
+               asp-route-brand="@Model.Filter.CurrentBrand"
+               asp-route-priceMin="@Model.Filter.CurrentPriceMin"
+               asp-route-priceMax="@Model.Filter.CurrentPriceMax">Наступна</a>
+        </li>
+    </ul>
+</nav>*@
