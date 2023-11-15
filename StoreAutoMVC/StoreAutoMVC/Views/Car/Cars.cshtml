@@ -118,60 +118,36 @@
     </tbody>
 </table>
 
-<p>
-    @if (Model.PageViewModel.HasPreviousPage)
-    {
-        <a asp-action="Cars"
-       asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
-       asp-route-name="@(Model.FilterViewModel.SelectedModel)"
-       asp-route-brand="@(Model.FilterViewModel.SelectedBrand)"
-       asp-route-sortCars="@(Model.SortViewModel.Current)"
-       class="glyphicon glyphicon-chevron-left">
-            Back
-        </a>
-    }
-    @if (Model.PageViewModel.HasNextPage)
-    {
-        <a asp-action="Cars"
-       asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
-       asp-route-name="@(Model.FilterViewModel.SelectedModel)"
-       asp-route-brand="@(Model.FilterViewModel.SelectedBrand)"
-       asp-route-sortCars="@(Model.SortViewModel.Current)"
-       class="glyphicon glyphicon-chevron-right">
-            Next
-        </a>
-    }
-</p>
-@*<nav>
+<nav>
     <ul class="pagination">
         @{
             int page = Model.PageViewModel.PageNumber;
         }
         <li class="page-item @(page == 1? "disabled":"")">
             <a class="page-link" asp-action="Cars" asp-controller="Car"
-               asp-route-page="@(page - 1)" 
+               asp-route-page="@(page - 1)"
                asp-route-name="@(Model.FilterViewModel.SelectedModel)"
                asp-route-brand="@(Model.FilterViewModel.SelectedBrand)"
                asp-route-sortCars="@(Model.SortViewModel.Current)" tabindex="-1">Попередня</a>
         </li>
-        @for (int i = 1; i < Model.MaxPage + 1; i++)
+        @for (int x = 1; x < Model.PageViewModel.TotalPages + 1; x++)
         {
-            <li class="page-item @(page == i ? "active": "" )">
-                <a class="page-link" asp-action="List" asp-controller="Product"
-               asp-route-page="@i" asp-route-name="@Model.Filter.Name"
-               asp-route-category="@Model.Filter.CurrentCategory"
-               asp-route-brand="@Model.Filter.CurrentBrand"
-               asp-route-priceMin="@Model.Filter.CurrentPriceMin"
-               asp-route-priceMax="@Model.Filter.CurrentPriceMax">@i <span class="sr-only">(current)</span></a>
+            <li class="page-item @(page == x ? "active": "" )">
+                <a class="page-link" asp-action="Cars" asp-controller="Car"
+               asp-route-page="@x"
+               asp-route-name="@(Model.FilterViewModel.SelectedModel)"
+               asp-route-brand="@(Model.FilterViewModel.SelectedBrand)"
+               asp-route-sortCars="@(Model.SortViewModel.Current)">
+                    @x
+                </a>
             </li>
         }
-        <li class="page-item @(page == Model.MaxPage? "disabled":"")">
-            <a class="page-link" asp-action="List" asp-controller="Product" asp-route-page="@(page+1)"
-               asp-route-name="@Model.Filter.Name"
-               asp-route-category="@Model.Filter.CurrentCategory"
-               asp-route-brand="@Model.Filter.CurrentBrand"
-               asp-route-priceMin="@Model.Filter.CurrentPriceMin"
-               asp-route-priceMax="@Model.Filter.CurrentPriceMax">Наступна</a>
+        <li class="page-item @(page == Model.PageViewModel.TotalPages? "disabled":"")">
+            <a class="page-link" asp-action="Cars" asp-controller="Car"
+               asp-route-page="@(page+1)"
+               asp-route-name="@(Model.FilterViewModel.SelectedModel)"
+               asp-route-brand="@(Model.FilterViewModel.SelectedBrand)"
+               asp-route-sortCars="@(Model.SortViewModel.Current)">Наступна</a>
         </li>
     </ul>
-</nav>*@
+</nav>

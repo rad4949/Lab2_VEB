@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using StoreAutoMVC.Entity;
 using StoreAutoMVC.Models;
 using StoreAutoMVC.ViewModels;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace StoreAutoMVC.Controllers
@@ -33,7 +34,7 @@ namespace StoreAutoMVC.Controllers
             int pageSize = 4;
 
             IQueryable<CarViewModel> cars = from equipment in dBContext.Set<Equipment>()
-                                    from model in dBContext.Set<Model>().Where(model => model.Id == equipment.ModelId).DefaultIfEmpty()
+                                    from model in dBContext.Set<StoreAutoMVC.Models.Model>().Where(model => model.Id == equipment.ModelId).DefaultIfEmpty()
                                     from brands in dBContext.Set<Brand>().Where(brand => brand.Id == model.BrandId).DefaultIfEmpty()
                                     select new CarViewModel
                                     {

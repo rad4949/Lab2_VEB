@@ -7,7 +7,6 @@ namespace StoreAutoMVC.ViewModels
         public SortState BrandSort { get; }
         public SortState ModelSort { get; }
         public SortState EquipmentSort { get; }
-        public SortState ItemSortState { get; }
         public SortState Current { get; }
         public bool BrandSortActive { get; set; } = false;
         public bool ModelSortActive { get; set; } = false;
@@ -19,7 +18,7 @@ namespace StoreAutoMVC.ViewModels
             BrandSort = sortCars == SortState.BrandNameAsc ? SortState.BrandNameDesc : SortState.BrandNameAsc;
             ModelSort = sortCars == SortState.ModelNameAsc ? SortState.ModelNameDesc : SortState.ModelNameAsc;
             EquipmentSort = sortCars == SortState.EquipmentNameAsc ? SortState.EquipmentNameDesc : SortState.EquipmentNameAsc;
-            ItemSortState = sortCars;
+            Current = sortCars;
 
             switch (sortCars)
             {
