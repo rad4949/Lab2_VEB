@@ -8,6 +8,11 @@ namespace StoreAutoMVC.Models
         [Key]
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Enter name equipment")]
+        [MaxLength(20, ErrorMessage = "Name equipment must be 20 characters or less"),
+          MinLength(2, ErrorMessage = "Name equipment must contain at least 2 characters")]
+        public string NameEquipment { get; set; }
+
         [Required(ErrorMessage = "Enter driver type")]
         [MaxLength(20, ErrorMessage = "Driver type must be 20 characters or less"),
            MinLength(2, ErrorMessage = "Driver type must contain at least 2 characters")]

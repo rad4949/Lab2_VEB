@@ -32,6 +32,7 @@ namespace StoreAutoMVC.Entity
                {
                    Id = 1,
                    ModelId = 1,
+                   NameEquipment = "AMG 400",
                    DriverType = "All-wheel drive",
                    EngineCapacity = 3,
                    FuelType = "Gasoline",
@@ -42,6 +43,7 @@ namespace StoreAutoMVC.Entity
                {
                    Id = 2,
                    ModelId = 2,
+                   NameEquipment = "Comfort +",
                    DriverType = "All-wheel drive",
                    EngineCapacity = 2,
                    FuelType = "Gasoline",
@@ -52,6 +54,7 @@ namespace StoreAutoMVC.Entity
                {
                    Id = 3,
                    ModelId = 3,
+                   NameEquipment = "AMG 63s",
                    DriverType = "Rear wheel drive",
                    EngineCapacity = 3,
                    FuelType = "Diesel",

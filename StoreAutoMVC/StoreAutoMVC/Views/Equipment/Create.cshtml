@@ -6,6 +6,13 @@
     <form asp-action="Create" method="post">
         <div class="row justify-content-center">
             <div class="col-5 mb-3">
+                <label asp-for="NameEquipment" class="form-label">Name equipment</label>
+                <input asp-for="NameEquipment" type="text" class="form-control" placeholder="Enter text ...">
+                <span asp-validation-for="NameEquipment" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-5 mb-3">
                 <label asp-for="DriverType" class="form-label">Driver type</label>
                 <input asp-for="DriverType" type="text" class="form-control" placeholder="Enter text ...">
                 <span asp-validation-for="DriverType" class="text-danger"></span>
