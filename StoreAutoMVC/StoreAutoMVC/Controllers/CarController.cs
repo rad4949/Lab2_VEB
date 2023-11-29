@@ -30,7 +30,7 @@ namespace StoreAutoMVC.Controllers
         
         public async Task<IActionResult> Cars(string name, int brand = 0, int page = 1, 
             SortState sortCars = SortState.BrandNameAsc)
-        {
+        {         
             int pageSize = 4;
 
             IQueryable<CarViewModel> cars = from equipment in dBContext.Set<Equipment>()

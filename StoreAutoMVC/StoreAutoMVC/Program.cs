@@ -1,16 +1,22 @@
 using Microsoft.EntityFrameworkCore;
 using StoreAutoMVC.Entity;
+using Microsoft.AspNetCore.Identity;
 using StoreAutoMVC.Interfaces;
+using Microsoft.AspNetCore.Identity;
+using StoreAutoMVC.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddControllersWithViews();
 
 string connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DBContext>(options => options.UseSqlServer(connection));
 
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<IdentityDBContext>();
+
 builder.Services.AddScoped<IDBContext, DBContext>();
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 

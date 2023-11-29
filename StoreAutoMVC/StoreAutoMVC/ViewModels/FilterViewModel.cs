@@ -8,7 +8,7 @@ namespace StoreAutoMVC.ViewModels
     {
         public FilterViewModel(List<Brand> brands, int brand, string name)
         {
-            brands.Insert(0, new Brand { NameBrand = "Всі", Id = 0 });
+            brands.Insert(0, new Brand { NameBrand = "All", Id = 0 });
             Brands = new SelectList(brands, "Id", "NameBrand", brand);
             SelectedBrand = brand;
             SelectedModel = name;
