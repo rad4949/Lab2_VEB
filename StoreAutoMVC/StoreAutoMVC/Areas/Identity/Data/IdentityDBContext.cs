@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using StoreAutoMVC.Areas.Identity.Data;
+using StoreAutoMVC.Models;
 
 namespace StoreAutoMVC.Entity;
-
 public class IdentityDBContext : IdentityDbContext<User>
 {
     public IdentityDBContext(DbContextOptions<IdentityDBContext> options)
@@ -15,8 +16,5 @@ public class IdentityDBContext : IdentityDbContext<User>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        // Customize the ASP.NET Identity model and override the defaults if needed.
-        // For example, you can rename the ASP.NET Identity table names and more.
-        // Add your customizations after calling base.OnModelCreating(builder);
     }
 }

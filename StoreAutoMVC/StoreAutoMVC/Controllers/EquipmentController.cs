@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using StoreAutoMVC.Entity;
@@ -6,6 +7,7 @@ using StoreAutoMVC.Models;
 
 namespace StoreAutoMVC.Controllers
 {
+    [Authorize]
     public class EquipmentController : Controller
     {
         readonly DBContext dBContext;

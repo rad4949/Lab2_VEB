@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using StoreAutoMVC.Entity;
 using StoreAutoMVC.Models;
@@ -6,6 +7,7 @@ using StoreAutoMVC.ViewModels;
 
 namespace StoreAutoMVC.Controllers
 {
+    [Authorize]
     public class BrandController : Controller
     {
         readonly DBContext dBContext;

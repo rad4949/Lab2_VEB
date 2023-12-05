@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using StoreAutoMVC.Entity;
 using StoreAutoMVC.Models;
 using StoreAutoMVC.ViewModels;
+using System.Data;
+using System.Security.Claims;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
@@ -19,6 +22,7 @@ namespace StoreAutoMVC.Controllers
         EquipmentNameAsc,
         EquipmentNameDesc
     }
+
     public class CarController : Controller
     {
         readonly DBContext dBContext;
@@ -27,23 +31,28 @@ namespace StoreAutoMVC.Controllers
             this.dBContext = dBContext;
         }
 
-        
-        public async Task<IActionResult> Cars(string name, int brand = 0, int page = 1, 
+
+        public async Task<IActionResult> Cars(string name, int brand = 0, int page = 1,
             SortState sortCars = SortState.BrandNameAsc)
-        {         
+        {
+
+            foreach (var role in User.Claims.Where(c => c.Type == ClaimTypes.Role))
+            {
+                var t = role.Value;
+            }
             int pageSize = 4;
 
             IQueryable<CarViewModel> cars = from equipment in dBContext.Set<Equipment>()
-                                    from model in dBContext.Set<StoreAutoMVC.Models.Model>().Where(model => model.Id == equipment.ModelId).DefaultIfEmpty()
-                                    from brands in dBContext.Set<Brand>().Where(brand => brand.Id == model.BrandId).DefaultIfEmpty()
-                                    select new CarViewModel
-                                    {
-                                        Equipment = equipment,
-                                        Model = model,
-                                        Brand = brands
-                                    };
+                                            from model in dBContext.Set<StoreAutoMVC.Models.Model>().Where(model => model.Id == equipment.ModelId).DefaultIfEmpty()
+                                            from brands in dBContext.Set<Brand>().Where(brand => brand.Id == model.BrandId).DefaultIfEmpty()
+                                            select new CarViewModel
+                                            {
+                                                Equipment = equipment,
+                                                Model = model,
+                                                Brand = brands
+                                            };
 
-            if(brand != 0)
+            if (brand != 0)
             {
                 cars = cars.Where(p => p.Brand.Id == brand);
             }
