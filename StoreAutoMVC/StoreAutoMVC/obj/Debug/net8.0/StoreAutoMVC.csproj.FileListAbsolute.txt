@@ -256,3 +256,13 @@ D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\Stor
 D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\obj\Debug\net8.0\StoreAutoMVC.pdb
 D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\obj\Debug\net8.0\StoreAutoMVC.genruntimeconfig.cache
 D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\obj\Debug\net8.0\ref\StoreAutoMVC.dll
+D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\bin\Debug\net8.0\Swashbuckle.AspNetCore.Newtonsoft.dll
+D:\КПІ\4 курс\Розробка веб застосунків\Лаб2\StoreAutoMVC\StoreAutoMVC\bin\Debug\net8.0\YamlDotNet.dll

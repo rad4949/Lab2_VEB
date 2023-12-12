@@ -7,6 +7,8 @@ using StoreAutoMVC.Areas.Identity.Data;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System;
+using Microsoft.OpenApi.Models;
+using StoreAutoMVC.Sevices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,12 +26,17 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
 
 builder.Services.AddScoped<IDBContext, DBContext>();
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddEndpointsApiExplorer();
+//builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
+    c.ParameterFilter<ModelNameParameterFilterService>();
+    c.ParameterFilter<BrandNameParameterFilterService>();
+}).AddSwaggerGenNewtonsoftSupport();
 
 var app = builder.Build();
 
-
-//SeedIdentity.SeedData(app.Services);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -38,6 +45,9 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -50,6 +60,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Car}/{action=Cars}/{id?}");
+
 app.MapRazorPages();
 
 app.Run();
